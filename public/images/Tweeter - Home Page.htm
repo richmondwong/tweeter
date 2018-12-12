@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8080/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta Information -->
+    <title>Tweeter - Home Page</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./Tweeter - Home Page_files/normalize-4.1.1.css" type="text/css">
+
+    <link href="./Tweeter - Home Page_files/css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./Tweeter - Home Page_files/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="./Tweeter - Home Page_files/layout.css" type="text/css">
+
+    <link rel="stylesheet" href="./Tweeter - Home Page_files/nav.css" type="text/css">
+
+    <link rel="stylesheet" href="./Tweeter - Home Page_files/new-tweet.css" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="./Tweeter - Home Page_files/jquery-2.2.3.min.js"></script>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="./Tweeter - Home Page_files/app.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Top nav bar (fixed) -->
+    <nav id="nav-bar">
+      <img class="logo" src="./Tweeter - Home Page_files/bird.png">
+      <span class="header">Tweeter</span>
+    </nav>
+
+    <!-- Page-specific (main) content here -->
+
+    <main id="main-container">
+    <main class="container">
+      <section class="new-tweet">
+  <h2>Compose Tweet</h2>
+  <form method="POST" action="http://localhost:8080/tweets/">
+     <textarea name="text" id="userInput" placeholder="What are you humming about?"></textarea>
+    <input type="submit" id="test" value="Tweet">
+    <span class="counter">140</span>
+  </form>
+</section>
+
+
+  <article class="fresh-tweet">
+
+    <header class="fresh-tweet">
+      <img src="http://localhost:8080/" class="tweet-photos">
+      <div class="enclose-name-handle">
+       <!--  <div class="enclose-name-handle-two"> -->
+        <span class="tweet-owner-box">Bill Fields</span>
+        <span class="handle-name-box">@MrFields</span>
+    <!--   </div> -->
+    </div>
+    </header>
+      <span class="actual-tweet"> Little Tweet Here </span>
+    <footer class="fresh-tweet">
+      <span class="tweet-days"> 10 days ago </span>
+  <span class="icons-box">
+    <i class="fas fa-flag"></i>
+    <i class="fas fa-retweet"></i>
+    <i class="fas fa-heart"></i>
+  </span>
+
+    </footer>
+
+  </article>
+
+
+    </main>
+</main>
+
+
+
+
+
+  
+
+  <script src="./Tweeter - Home Page_files/composer-char-counter.js"></script>
+
+</body></html>
