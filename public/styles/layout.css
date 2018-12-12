@@ -23,20 +23,109 @@ body {
 
 #main-container {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ /* flex-direction: column;*/
 
 }
 
 .container {
   width: 550px;
-  /*margin-left: auto;
-  margin-right: auto;*/
   background-color: white;
- /* margin-top: 140px;*/
   height: 70%;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   }
 
+
+article.fresh-tweet{
+  border: solid;
+  width: 450px;
+  border-radius: 7px;
+  border: solid;
+  border-color: gray;
+  margin-top:10px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.5;
+
+}
+
+article.fresh-tweet:hover {
+  opacity: 1
+/*  background-color: red;*/
+}
+
+header.fresh-tweet {
+/*  border: solid;*/
+  display: flex;
+  flex-direction: row;
+  height: 105px;
+  padding: 5px;
+  background-color: #E9E9F0;
+}
+
+footer.fresh-tweet {
+/*  border: solid;*/
+  border-width: 1.45px;
+  /*border-top-color: gray;*/
+  border-top-style: ridge;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+img.tweet-photos {
+/*  border: solid;*/
+  border-radius: 7px;
+  background-image: url("../images/tweetphoto.svg");
+  width: 20%;
+  height: 84px;
+  /*height: 50px;*/
+}
+
+div.enclose-name-handle {
+/*  border: solid;
+  border-color: yellow;*/
+  display: flex;
+  flex-direction: row;
+/*  align-content: flex-start;*/
+  flex-grow: 1;
+}
+
+/*div.enclose-name-handle-two {
+  border: solid;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+}*/
+
+
+.tweet-owner-box {
+/*  border: solid;*/
+  flex-grow: 1;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.handle-name-box {
+ /* border: solid;*/
+  font: #808080;
+}
+
+.actual-tweet {
+font-size: 25px;
+padding: 30px 10px;
+font-weight: 100;
+}
+
+.icons-box {
+  border: solid;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
