@@ -1,10 +1,4 @@
 
-
-// Need to change section to article?
-// let $tweet = $('<article>').addClass('tweet')
-
-
-
 $(document).ready(function() {
   const data = [
     {

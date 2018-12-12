@@ -21,6 +21,30 @@
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script>
+
+
+    $(document).ready(function() {
+
+    $(function() {
+      var $form = $('#formSubmit');
+      $form.submit(function (event) {
+        event.preventDefault();
+
+        var formData = $(this).serialize();
+        console.log(formData)
+        $.ajax('/tweets', { method: 'POST', data: formData})
+        .done(function(data) {
+          console.log('done')
+        })
+        })
+      })
+  })
+
+    </script>
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
@@ -38,10 +62,10 @@
     <main id="main-container">
     <main class="container">
       <section class="new-tweet">
-  <h2>Compose Tweet</h2>
-  <form method="POST" action="/tweets/">
-     <textarea name="text" id="userInput" placeholder="What are you humming about?"></textarea>
-    <input type="submit" id="test" value="Tweet">
+      <h2>Compose Tweet</h2>
+  <form method="POST" action="/tweets/" id="formSubmit">
+    <textarea name="text"  placeholder="What are you humming about?"></textarea>
+    <input type="submit" id="buttonSubmit" value="Tweet">
     <span class="counter">140</span>
   </form>
 </section>
