@@ -63,8 +63,8 @@ button:focus {outline:0;}
  /* border: solid;*/
   /*margin-top: 25px;*/
 /*  color: #e8fdff;*/
-border: none;
-  color : #00a087 ;
+  border: none;
+  color: #00A087 ;
   background-color: #E1FFED;
 }
 
@@ -89,7 +89,7 @@ background-color: #E1FFED;
   }
 
 
-article.fresh-tweet-box{
+article.fresh-tweet-box {
   border: solid;
   width: 450px;
   border-radius: 7px;

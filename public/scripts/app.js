@@ -48,12 +48,12 @@ $(document).ready(function() {
   ];
 
 
-
-
   $('.compose-button-box').on('click', function () {
     $(".new-tweet").slideToggle();
+    $("#userInput").first().focus();
   });
 
+  $("#userInput").first().focus()
 
 
 var $form = $('#formSubmit');
