@@ -47,13 +47,23 @@ $(document).ready(function() {
     }
   ];
 
+
+
+
+  $('.compose-button-box').on('click', function () {
+    $(".new-tweet").slideToggle();
+  });
+
+
+
 var $form = $('#formSubmit');
 
 $form.submit(function (event) {
+  console.log("This is event: ", event)
   event.preventDefault();
+  console.log("This is $this: ", $(this))
   var formData = $(this).serialize();
-  // console.log("This is formData: ", formData)
-  // console.log(typeof formData)
+  console.log("This is formData (this serialize): ", formData)
  var inputValidation = $('#userInput').val();
 
  if (inputValidation.length === 0){
@@ -84,6 +94,12 @@ else {
     })
   }
 
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   function createTweetElement(input){
     var tweet =
      ` <article class="fresh-tweet-box">
@@ -94,7 +110,7 @@ else {
             <span class="handle-name-box">${input["user"]["handle"]}</span>
         </div>
         </header>
-          <span class="actual-tweet"> ${input["content"]["text"]}</span>
+          <span class="actual-tweet"> ${escape(input["content"]["text"])}</span>
         <footer class="fresh-tweet-footer">
           <span class="tweet-days"> ${input["created_at"]} </span>
       <span class="icons-box">

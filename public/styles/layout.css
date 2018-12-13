@@ -28,6 +28,57 @@ body {
 
 }
 
+
+#nav-bar {
+/*  border: solid;
+  border-color: black;*/
+  border-width: 10px;
+  display: flex;
+}
+
+span.header {
+  display: flex;
+  flex-grow: 1;
+ /* border: solid*/
+}
+
+.compose-button-box {
+  border: solid;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  opacity: 0.85;
+}
+
+.compose-button-box:hover{
+  opacity: 1;
+
+}
+
+button:focus {outline:0;}
+
+#compose-button {
+ /* border: solid;*/
+  /*margin-top: 25px;*/
+/*  color: #e8fdff;*/
+border: none;
+  color : #00a087 ;
+  background-color: #E1FFED;
+}
+
+.fa-edit {
+  /*border: solid;*/
+/*  display: flex;
+  align-items: center;*/
+color: #00a087;
+  /*color: #e8fdff;*/
+/*  background-color: rgb(255, 255, 255);*/
+background-color: #E1FFED;
+}
+
+
 .container {
   width: 550px;
   background-color: white;
