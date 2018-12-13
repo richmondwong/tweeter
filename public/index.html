@@ -26,24 +26,24 @@
     <script>
 
 
-    $(document).ready(function() {
+  //   $(document).ready(function() {
 
-    $(function() {
-      var $form = $('#formSubmit');
-      $form.submit(function (event) {
-        event.preventDefault();
+  //   $(function() {
+  //     var $form = $('#formSubmit');
+  //     $form.submit(function (event) {
+  //       event.preventDefault();
 
-        var formData = $(this).serialize();
-        console.log(formData)
-        $.ajax('/tweets', { method: 'POST', data: formData})
-        .done(function(data) {
-          console.log('done')
-        })
-        })
-      })
-  })
+  //       var formData = $(this).serialize();
+  //       console.log(formData)
+  //       $.ajax('/tweets', { method: 'POST', data: formData})
+  //       .done(function(data) {
+  //         console.log('done')
+  //       })
+  //       })
+  //     })
+  // })
 
-    </script>
+  </script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -64,7 +64,7 @@
       <section class="new-tweet">
       <h2>Compose Tweet</h2>
   <form method="POST" action="/tweets/" id="formSubmit">
-    <textarea name="text"  placeholder="What are you humming about?"></textarea>
+    <textarea name="text"  id="userInput" placeholder="What are you humming about?"></textarea>
     <input type="submit" id="buttonSubmit" value="Tweet">
     <span class="counter">140</span>
   </form>

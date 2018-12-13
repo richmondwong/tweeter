@@ -6,6 +6,7 @@ $(document).ready(function() {
 
     if (characterCount > 140){
       $textarea.siblings(".counter").css("color", "red")
+      alert("You've gone over 140 characters!")
     }
     console.log("This is length:", 140 - tweetStr)
     console.log("charCount test", charCount)

@@ -47,10 +47,40 @@ $(document).ready(function() {
     }
   ];
 
+var $form = $('#formSubmit');
+
+$form.submit(function (event) {
+  event.preventDefault();
+  var formData = $(this).serialize();
+  // console.log("This is formData: ", formData)
+  // console.log(typeof formData)
+ var inputValidation = $('#userInput').val();
+
+ if (inputValidation.length === 0){
+  alert("No data! Please enter some text!")
+ }
+else {
+  $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
+  console.log('done')
+  loadTweets()
+  })
+}
+})
+
+  function loadTweets(){
+    $.ajax('/tweets', { method: 'GET'}).done(function(incomingData){
+      console.log(incomingData)
+      $('.overall-tweets-box').empty()
+      console.log("incoming data: ", incomingData);
+      var orderedTweets = incomingData
+      renderTweets(incomingData);
+    })
+  }
+
   function renderTweets(input){
     input.forEach(function(individualUsers){
       var individualTweet = createTweetElement(individualUsers);
-      $('.overall-tweets-box').append(individualTweet)
+      $('.overall-tweets-box').prepend(individualTweet)
     })
   }
 
@@ -79,4 +109,6 @@ $(document).ready(function() {
   }
 
   renderTweets(data)
+// loadTweets()
+
 })
