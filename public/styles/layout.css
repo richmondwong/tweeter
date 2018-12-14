@@ -78,6 +78,15 @@ color: #00a087;
 background-color: #E1FFED;
 }
 
+#no-chars-error {
+  color: red;
+  display: none;
+}
+
+#over-char-limit-error {
+  color: red;
+  display: none;
+}
 
 .container {
   width: 550px;

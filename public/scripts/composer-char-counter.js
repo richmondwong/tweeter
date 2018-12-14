@@ -6,8 +6,20 @@ $(document).ready(function() {
 
     if (characterCount > 140){
       $textarea.siblings(".counter").css("color", "red")
-      alert("You've gone over 140 characters!")
+      toggleOverCharLimitError()
+      // alert("You've gone over 140 characters!")
     }
   })
+
+ function toggleOverCharLimitError(){
+  var getElement = document.getElementById("over-char-limit-error");
+  if (getElement.style.display === "none"){
+    getElement.style.display = "contents";
+  }
+  else {
+    getElement.style.display = "none";
+  }
+}
+
 });
 

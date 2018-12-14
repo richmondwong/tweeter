@@ -50,10 +50,32 @@ $(document).ready(function() {
 
   $('.compose-button-box').on('click', function () {
     $(".new-tweet").slideToggle();
-    $("#userInput").first().focus();
+    $("#userInput").focus();
   });
 
-  $("#userInput").first().focus()
+  $("#userInput").focus()
+
+
+function toggleNoTextError(){
+  var getElement = document.getElementById("no-chars-error");
+  if (getElement.style.display === "none"){
+    getElement.style.display = "contents";
+  }
+  else {
+    getElement.style.display = "none";
+  }
+}
+
+// function toggleOverCharLimitError(){
+//   var getElement = document.getElementById("over-char-limit-error");
+//   if (getElement.style.display === "none"){
+//     getElement.style.display = "contents";
+//   }
+//   else {
+//     getElement.style.display = "none";
+//   }
+// }
+
 
 
 var $form = $('#formSubmit');
@@ -67,7 +89,10 @@ $form.submit(function (event) {
  var inputValidation = $('#userInput').val();
 
  if (inputValidation.length === 0){
-  alert("No data! Please enter some text!")
+  // alert is here
+  // Error message for over 140 characters
+  toggleNoTextError()
+  // alert("No data! Please enter some text!")
  }
 else {
   $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
