@@ -1,5 +1,8 @@
+  // var moment = require('moment');
 
 $(document).ready(function() {
+
+
   const data = [
     {
       "user": {
@@ -47,6 +50,7 @@ $(document).ready(function() {
     }
   ];
 
+$('.new-tweet').hide()
 
   $('.compose-button-box').on('click', function () {
     $(".new-tweet").slideToggle();
@@ -57,7 +61,12 @@ $(document).ready(function() {
 
 
 function toggleNoTextError(){
-  var getElement = document.getElementById("no-chars-error");
+  var getElementNoChars = document.getElementById("no-chars-error");
+  getElementNoChars.style.display = "contents";
+}
+
+function toggleOverCharLimitError(){
+  var getElement = document.getElementById("over-char-limit-error");
   if (getElement.style.display === "none"){
     getElement.style.display = "contents";
   }
@@ -65,16 +74,6 @@ function toggleNoTextError(){
     getElement.style.display = "none";
   }
 }
-
-// function toggleOverCharLimitError(){
-//   var getElement = document.getElementById("over-char-limit-error");
-//   if (getElement.style.display === "none"){
-//     getElement.style.display = "contents";
-//   }
-//   else {
-//     getElement.style.display = "none";
-//   }
-// }
 
 
 
@@ -89,10 +88,7 @@ $form.submit(function (event) {
  var inputValidation = $('#userInput').val();
 
  if (inputValidation.length === 0){
-  // alert is here
-  // Error message for over 140 characters
-  toggleNoTextError()
-  // alert("No data! Please enter some text!")
+  toggleNoTextError();
  }
 else {
   $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
@@ -129,7 +125,7 @@ else {
     var tweet =
      ` <article class="fresh-tweet-box">
         <header class="fresh-tweet-header">
-          <img src="" class="tweet-photos">
+          <img class="tweet-photos">
           <div class="enclose-name-handle">
             <span class="tweet-owner-box">${input["user"]["name"]}</span>
             <span class="handle-name-box">${input["user"]["handle"]}</span>
@@ -137,7 +133,7 @@ else {
         </header>
           <span class="actual-tweet"> ${escape(input["content"]["text"])}</span>
         <footer class="fresh-tweet-footer">
-          <span class="tweet-days"> ${input["created_at"]} </span>
+          <span class="tweet-days"> Sent ${new Date(input["created_at"])} </span>
       <span class="icons-box">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
