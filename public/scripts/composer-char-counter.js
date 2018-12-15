@@ -11,11 +11,15 @@ $(document).ready(function() {
       getElementNoChars.style.display = "none";
       getElementOverCharLimit.style.display = "contents";
     }
-    else if (characterCount > 0){
+     else if (characterCount >= 0 && characterCount < 140){
+      $textarea.siblings(".counter").css("color", "#244751");
+      getElementOverCharLimit.style.display = "none"
+    }
+    else if (characterCount >= 0){
       getElementNoChars.style.display = "none";
     }
     else {
-      $textarea.siblings(".counter").css("color", "#244751")
+      $textarea.siblings(".counter").css("color", "#244751");
       getElementOverCharLimit.style.display = "none";
     }
   })

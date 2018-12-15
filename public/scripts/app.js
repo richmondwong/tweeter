@@ -91,6 +91,9 @@ $form.submit(function (event) {
 else {
   $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
   console.log('done')
+  $('#userInput').val('').focus();
+  $('.counter').text(140)
+  // console.log(inputValidation.length = 140);
   loadTweets()
   })
 }
@@ -131,7 +134,7 @@ else {
         </header>
           <span class="actual-tweet"> ${escape(input["content"]["text"])}</span>
         <footer class="fresh-tweet-footer">
-          <span class="tweet-days"> Sent ${input["created_at"]} </span>
+          <span class="tweet-days"> Sent ${escape(moment(input["created_at"]).fromNow())} </span>
       <span class="icons-box">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
