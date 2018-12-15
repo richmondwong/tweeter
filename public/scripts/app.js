@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
 
+  // var moment = require('moment');
 
   const data = [
     {
@@ -65,16 +66,10 @@ function toggleNoTextError(){
   getElementNoChars.style.display = "contents";
 }
 
-function toggleOverCharLimitError(){
-  var getElement = document.getElementById("over-char-limit-error");
-  if (getElement.style.display === "none"){
-    getElement.style.display = "contents";
-  }
-  else {
-    getElement.style.display = "none";
-  }
+function toggleNoTextError(){
+  var getElementNoChars = document.getElementById("no-chars-error");
+  getElementOverCharLimit.style.display = "contents";
 }
-
 
 
 var $form = $('#formSubmit');
@@ -89,6 +84,9 @@ $form.submit(function (event) {
 
  if (inputValidation.length === 0){
   toggleNoTextError();
+ }
+ else if (inputValidation.length > 140){
+  toggleOverCharLimitError();
  }
 else {
   $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
@@ -133,7 +131,7 @@ else {
         </header>
           <span class="actual-tweet"> ${escape(input["content"]["text"])}</span>
         <footer class="fresh-tweet-footer">
-          <span class="tweet-days"> Sent ${new Date(input["created_at"])} </span>
+          <span class="tweet-days"> Sent ${input["created_at"]} </span>
       <span class="icons-box">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
