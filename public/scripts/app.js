@@ -42,6 +42,7 @@ $form.submit(function (event) {
   }
   else if (inputValidation.length > 140){
     toggleOverCharLimitError();
+    toggleNoTextErrorOff();
   }
   else {
     $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
