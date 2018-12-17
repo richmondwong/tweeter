@@ -1,9 +1,12 @@
 $(document).ready(function() {
 
+// Load existing tweets even upon page refresh
 loadTweets();
 
+// Hide Compose Tweet box upon page refresh
 $('.new-tweet').hide();
 
+// Toggle Compose Tweet box and autofocus cursor in textarea
 $('.compose-button-box').on('click', function () {
   $(".new-tweet").slideToggle();
   $("#userInput").focus();
@@ -11,7 +14,7 @@ $('.compose-button-box').on('click', function () {
 
 $("#userInput").focus();
 
-// Toggle error messages (Over Character Limit / No Text) on/off
+// Functions for toggling error messages (Over Character Limit / No Text) on/off
 function toggleNoTextError(){
   var getElementNoChars = document.getElementById("no-chars-error");
   getElementNoChars.style.display = "contents";
@@ -27,13 +30,11 @@ function toggleNoTextErrorOff(){
   getElementOverCharLimit.style.display = "none";
 };
 
+// Form submission AJAX call. Makes checks to toggle Over Character Limit and No Text Entered error messages.
 var $form = $('#formSubmit');
 $form.submit(function (event) {
-  // console.log("This is event: ", event)
   event.preventDefault();
-  // console.log("This is $this: ", $(this))
   var formData = $(this).serialize();
-  // console.log("This is formData (this serialize): ", formData)
   var inputValidation = $('#userInput').val();
 
   if (inputValidation.length === 0){
@@ -44,7 +45,6 @@ $form.submit(function (event) {
   }
   else {
     $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
-    // console.log('done')
     toggleNoTextErrorOff();
     $('#userInput').val('').focus();
     $('.counter').text(140);
@@ -53,29 +53,31 @@ $form.submit(function (event) {
   }
 });
 
+// Loads tweets from Mongo server
 function loadTweets(){
   $.ajax('/tweets', { method: 'GET'}).done(function(incomingData){
-    // console.log(incomingData)
-    $('.overall-tweets-box').empty()
-    // console.log("incomingData: ", incomingData);
-    var orderedTweets = incomingData
+    $('.overall-tweets-box').empty();
+    var orderedTweets = incomingData;
     renderTweets(incomingData);
   })
 };
 
+// Render tweets onscreen
 function renderTweets(input){
   input.forEach(function(individualUsers){
   var individualTweet = createTweetElement(individualUsers);
-  $('.overall-tweets-box').prepend(individualTweet)
+  $('.overall-tweets-box').prepend(individualTweet);
   })
 };
 
+// Escapes Cross Site Scripting vulnerabilities
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+// Creates HTML for the new tweet that will be posted
 function createTweetElement(input){
   var tweet =
   ` <article class="fresh-tweet-box">
