@@ -11,7 +11,7 @@ $(document).ready(function() {
       getElementNoChars.style.display = "none";
       getElementOverCharLimit.style.display = "contents";
     }
-     else if (characterCount >= 0 && characterCount < 140){
+    else if (characterCount >= 0 && characterCount < 140){
       $textarea.siblings(".counter").css("color", "#244751");
       getElementOverCharLimit.style.display = "none"
     }

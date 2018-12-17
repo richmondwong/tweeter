@@ -1,85 +1,84 @@
 $(document).ready(function() {
 
-loadTweets()
-// const data = [];
-// const data = $.ajax('/tweets', {method: 'GET'}).done(function(db) {
-// console.log("This is AJAX Data: ", data)
+loadTweets();
 
-$('.new-tweet').hide()
+$('.new-tweet').hide();
 
-  $('.compose-button-box').on('click', function () {
-    $(".new-tweet").slideToggle();
-    $("#userInput").focus();
-  });
+$('.compose-button-box').on('click', function () {
+  $(".new-tweet").slideToggle();
+  $("#userInput").focus();
+});
 
-  $("#userInput").focus()
+$("#userInput").focus();
 
-
+// Toggle error messages (Over Character Limit / No Text) on/off
 function toggleNoTextError(){
   var getElementNoChars = document.getElementById("no-chars-error");
   getElementNoChars.style.display = "contents";
-}
+};
 
-function toggleNoTextError(){
-  var getElementNoChars = document.getElementById("no-chars-error");
+function toggleOverCharLimitError(){
+  var getElementOverCharLimit = document.getElementById("no-chars-error");
   getElementOverCharLimit.style.display = "contents";
-}
+};
 
+function toggleNoTextErrorOff(){
+  var getElementOverCharLimit = document.getElementById("no-chars-error");
+  getElementOverCharLimit.style.display = "none";
+};
 
 var $form = $('#formSubmit');
-
-
 $form.submit(function (event) {
-  console.log("This is event: ", event)
+  // console.log("This is event: ", event)
   event.preventDefault();
-  console.log("This is $this: ", $(this))
+  // console.log("This is $this: ", $(this))
   var formData = $(this).serialize();
-  console.log("This is formData (this serialize): ", formData)
- var inputValidation = $('#userInput').val();
+  // console.log("This is formData (this serialize): ", formData)
+  var inputValidation = $('#userInput').val();
 
- if (inputValidation.length === 0){
-  toggleNoTextError();
- }
- else if (inputValidation.length > 140){
-  toggleOverCharLimitError();
- }
-else {
-  $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
-  console.log('done')
-  $('#userInput').val('').focus();
-  $('.counter').text(140)
-  // console.log(inputValidation.length = 140);
-  loadTweets()
+  if (inputValidation.length === 0){
+    toggleNoTextError();
+  }
+  else if (inputValidation.length > 140){
+    toggleOverCharLimitError();
+  }
+  else {
+    $.ajax('/tweets', { method: 'POST', data: formData}).done(function(data) {
+    // console.log('done')
+    toggleNoTextErrorOff();
+    $('#userInput').val('').focus();
+    $('.counter').text(140);
+    loadTweets();
+    })
+  }
+});
+
+function loadTweets(){
+  $.ajax('/tweets', { method: 'GET'}).done(function(incomingData){
+    // console.log(incomingData)
+    $('.overall-tweets-box').empty()
+    // console.log("incomingData: ", incomingData);
+    var orderedTweets = incomingData
+    renderTweets(incomingData);
   })
-}
-})
+};
 
-  function loadTweets(){
-    $.ajax('/tweets', { method: 'GET'}).done(function(incomingData){
-      console.log(incomingData)
-      $('.overall-tweets-box').empty()
-      console.log("incomingData: ", incomingData);
-      var orderedTweets = incomingData
-      renderTweets(incomingData);
-    })
-  }
+function renderTweets(input){
+  input.forEach(function(individualUsers){
+  var individualTweet = createTweetElement(individualUsers);
+  $('.overall-tweets-box').prepend(individualTweet)
+  })
+};
 
-  function renderTweets(input){
-    input.forEach(function(individualUsers){
-      var individualTweet = createTweetElement(individualUsers);
-      $('.overall-tweets-box').prepend(individualTweet)
-    })
-  }
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
-  function escape(str) {
-    var div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
-
-  function createTweetElement(input){
-    var tweet =
-     ` <article class="fresh-tweet-box">
+function createTweetElement(input){
+  var tweet =
+  ` <article class="fresh-tweet-box">
         <header class="fresh-tweet-header">
           <img class="tweet-photos">
           <div class="enclose-name-handle">
@@ -97,14 +96,6 @@ else {
       </span>
         </footer>
       </article>`
-
-    return tweet;
+ return tweet;
   }
-
-  // renderTweets(data)
-   // renderTweets(data)
-
-// loadTweets()
-
-})
-
+});

@@ -4,19 +4,17 @@
   padding-left: 2em;
   padding-right: 2em;
   height: 80px;
-
 }
 
 #nav-bar .logo {
   height: 80px;
   width: 80px;
   margin-right: 10px;
-  float : left;
+  float: left;
 }
-
 
 #nav-bar .header {
   font-size: 2rem;
   line-height: 80px;
-  float : left;
+  float: left;
 }

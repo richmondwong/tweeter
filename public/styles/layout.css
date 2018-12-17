@@ -25,13 +25,9 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-
 }
 
-
 #nav-bar {
-/*  border: solid;
-  border-color: black;*/
   border-width: 10px;
   display: flex;
 }
@@ -39,7 +35,6 @@ body {
 span.header {
   display: flex;
   flex-grow: 1;
- /* border: solid*/
 }
 
 .compose-button-box {
@@ -54,28 +49,19 @@ span.header {
 
 .compose-button-box:hover{
   opacity: 1;
-
 }
 
 button:focus {outline:0;}
 
 #compose-button {
- /* border: solid;*/
-  /*margin-top: 25px;*/
-/*  color: #e8fdff;*/
   border: none;
-  color: #00A087 ;
+  color: #00A087;
   background-color: #E1FFED;
 }
 
 .fa-edit {
-  /*border: solid;*/
-/*  display: flex;
-  align-items: center;*/
-color: #00a087;
-  /*color: #e8fdff;*/
-/*  background-color: rgb(255, 255, 255);*/
-background-color: #E1FFED;
+  color: #00a087;
+  background-color: #E1FFED;
 }
 
 #no-chars-error {
@@ -95,8 +81,7 @@ background-color: #E1FFED;
   display: flex;
   flex-direction: column;
   align-items: center;
-  }
-
+}
 
 article.fresh-tweet-box {
   border: solid;
@@ -108,7 +93,6 @@ article.fresh-tweet-box {
   display: flex;
   flex-direction: column;
   opacity: 0.5;
-
 }
 
 article.fresh-tweet-box:hover {
@@ -148,9 +132,7 @@ div.enclose-name-handle {
   flex-grow: 1;
 }
 
-
 .tweet-owner-box {
-/*  border: solid;*/
   flex-grow: 1;
   font-size: 30px;
   font-weight: bold;
@@ -158,14 +140,13 @@ div.enclose-name-handle {
 }
 
 .handle-name-box {
- /* border: solid;*/
   font: #808080;
 }
 
 .actual-tweet {
-font-size: 25px;
-padding: 30px 10px;
-font-weight: 100;
+  font-size: 25px;
+  padding: 30px 10px;
+  font-weight: 100;
 }
 
 .tweet-days {
@@ -181,9 +162,6 @@ font-weight: 100;
   margin: 2px;
 }
 
-/*.fresh-tweet-box header {
-  background: red;
-}*/
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
