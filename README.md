@@ -1,8 +1,8 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a single-page homage capturing the essence of Twitter (much in the same way there are tribute watches to such classics as the Rolex Submariner, Omega Speedmaster and Cartier Tank).
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+Tweeter uses HTML, CSS, JS, jQuery and AJAX for the front-end, and  Node, Express and MongoDB for the back-end.
 
 ## Getting Started
 
@@ -13,5 +13,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Dependencies
 
+- Body Parser
+- Chance
 - Express
+- Moment
+- MongoDB
+- MD5
 - Node 5.10.x or above
