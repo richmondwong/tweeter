@@ -20,3 +20,8 @@ Tweeter uses HTML, CSS, JS, jQuery and AJAX for the front-end, and  Node, Expres
 - MongoDB
 - MD5
 - Node 5.10.x or above
+
+## Screenshots
+
+!["Screenshot of tweet about to be sent, and tweet already sent"](https://github.com/richmondwong/tweeter/blob/master/docs/tweeter-post.png?raw=true)
+!["Screenshot of error message when over 140 character limit"](https://github.com/richmondwong/tweeter/blob/master/docs/tweeter-over-limit.png?raw=true)
