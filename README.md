@@ -23,5 +23,8 @@ Tweeter uses HTML, CSS, JS, jQuery and AJAX for the front-end, and  Node, Expres
 
 ## Screenshots
 
+Composing a tweet. Character count is tracked in real-time.
 !["Screenshot of tweet about to be sent, and tweet already sent"](https://github.com/richmondwong/tweeter/blob/master/docs/tweeter-post.png?raw=true)
+
+The Compose box will not allow users to send Tweets over 140 characters. An error message will appear any time the user has typed ovver 140 characters, and the character count will turn negative, indicating how many characters they are over the limit.
 !["Screenshot of error message when over 140 character limit"](https://github.com/richmondwong/tweeter/blob/master/docs/tweeter-over-limit.png?raw=true)
