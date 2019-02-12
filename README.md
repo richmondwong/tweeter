@@ -1,3 +1,5 @@
+!["Tweeter GIF"](https://github.com/richmondwong/tweeter/blob/master/docs/tweeter_one.gif)
+
 # Tweeter Project
 
 Tweeter is a single-page homage capturing the essence of Twitter (much in the same way there are tribute watches to such classics as the Rolex Submariner, Omega Speedmaster and Cartier Tank).
